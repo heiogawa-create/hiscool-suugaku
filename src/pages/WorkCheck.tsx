@@ -1,0 +1,2 @@
+import{Link}from'react-router-dom';import{Button,Card,Page}from'../components/common';import{analyzeWork}from'../services/mockAiService';
+export default function WorkCheck(){return <Page title="途中式確認"><Card><input type="file" accept="image/*" aria-label="途中式画像をアップロード"/><p>サンプル途中式を解析しました。</p>{analyzeWork().map((a,i)=><div className={'line '+a.status} key={i}><b>{a.status}</b> {a.line}<p>{a.hint}</p></div>)}<p className="question">この行で、括弧の前のマイナスはどこまで影響するでしょうか？</p><Link to="/solution"><Button>正しい途中式を確認する</Button></Link></Card></Page>}

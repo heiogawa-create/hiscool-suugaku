@@ -1,0 +1,2 @@
+import{Card,Page}from'../components/common';import{analysisComments}from'../services/mockAiService';
+export default function Analytics(){const stats=['今週の学習時間 180分','質問した問題数 12','解き直した問題数 5','正答率 72%','平均ヒント使用数 2.4','連続学習日数 5日','数学Ⅰ 理解度 70%','平方完成 苦手度 高'];return <Page title="苦手分析・学習記録"><div className="grid">{stats.map(s=><Card>{s}<div className="bar"><span style={{width:'70%'}}/></div></Card>)}</div><Card><h2>AI分析コメント</h2>{analysisComments().map(c=><p>💡 {c}</p>)}</Card></Page>}
