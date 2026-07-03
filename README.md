@@ -45,6 +45,10 @@ npm run build
 3. Publish directory: `dist`
 4. `public/_redirects` と `netlify.toml` によりSPA更新時の404を回避
 
+
+## Vercel / その他の静的ホスティング
+Vercelでは `vercel.json` により `npm run build` と出力先 `dist`、SPAリライトを指定しています。Netlify以外へ配置する場合も、ビルド後の `dist` を公開ディレクトリにしてください。
+
 ## 今後の拡張案
 - 本番AI API接続
 - 画像OCR/数式認識
