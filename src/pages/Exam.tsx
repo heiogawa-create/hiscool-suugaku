@@ -1,0 +1,1 @@
+import{Card,Page}from'../components/common';export default function Exam(){return <Page title="受験モード"><Card>{['共通テスト','国公立大学','私立大学','文系数学','理系数学'].map(x=><label className="check"><input name="exam" type="radio"/>{x}</label>)}<select><option>標準校レベル</option><option>難関校レベル</option></select><h2>おすすめ学習</h2><p>現在の理解度に合わせ、数列の漸化式と二次関数の最大最小を優先しましょう。</p></Card></Page>}

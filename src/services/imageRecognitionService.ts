@@ -1,0 +1,1 @@
+export { recognizeProblem } from './mockAiService';

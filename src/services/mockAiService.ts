@@ -1,0 +1,6 @@
+import { defaultProblem } from '../data/sampleProblems';import { AiCoachResponse, HintLevel, MistakeAnalysis, RecognizedProblem } from '../types';
+export const wait=(ms=600)=>new Promise(r=>setTimeout(r,ms));
+export async function recognizeProblem(text?:string):Promise<RecognizedProblem>{await wait();return{text:text||defaultProblem.text,formula:'y=x^2-4x+1',choices:[],hasDiagram:false,subject:defaultProblem.subject,unit:defaultProblem.unit,difficulty:defaultProblem.difficulty,confidence:.92}}
+export function getHint(level:HintLevel):AiCoachResponse{const hint=defaultProblem.hints[level-1];return{recognizedProblem:{text:defaultProblem.text,formula:'y=x^2-4x+1',choices:[],hasDiagram:false,subject:'数学Ⅰ',unit:'二次関数',difficulty:'標準',confidence:.92},studentStatus:{stuckPoint:'解き始め方',understandingLevel:level},hint,answerDisclosure:level===5,misconception:{type:'符号ミス',description:'括弧を外すときの符号に注意が必要です'},nextActions:['もう少しヒント','自分の考えを送る','途中式を撮影']}}
+export function analyzeWork():MistakeAnalysis[]{return[{line:'x^2-4x+1',status:'正しい',hint:'式の写し取りはできています。'},{line:'=(x-2)^2+3',status:'間違いの可能性',type:'符号ミス',hint:'平方完成で足して引いた数は何でしたか？'},{line:'最小値 3',status:'確認が必要',hint:'頂点の y 座標をもう一度確認しましょう。'}]}
+export function analysisComments(){return['二次関数そのものより、平方完成の計算でつまずく傾向があります。','符号ミスが減っています。この調子で途中式を丁寧に書きましょう。']}
