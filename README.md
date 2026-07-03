@@ -49,6 +49,10 @@ npm run build
 ## Vercel / その他の静的ホスティング
 Vercelでは `vercel.json` により `npm run build` と出力先 `dist`、SPAリライトを指定しています。Netlify以外へ配置する場合も、ビルド後の `dist` を公開ディレクトリにしてください。
 
+### Vercelへデプロイする方法
+- 推奨: Vercel DashboardでこのGitリポジトリをImportし、Framework Presetは「Other」、Build Commandは `npm run build`、Output Directoryは `dist` のままDeployします。
+- CLIを使う場合は `VERCEL_TOKEN` を設定してから `npm run deploy:vercel` を実行します。この環境ではnpm registryへのアクセスが403でブロックされる場合があるため、Dashboard連携が最も確実です。
+
 ## 今後の拡張案
 - 本番AI API接続
 - 画像OCR/数式認識
